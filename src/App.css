@@ -27,7 +27,48 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.components-table-demo-control-bar {
+  margin-bottom: 10px;
+}
+
+.components-table-demo-control-bar .ant-form-item {
+  margin-right: 16px;
+  margin-bottom: 8px;
+}
+
+
+
+th.drop-over-downward td {
+  border-bottom: 2px dashed #1890ff;
+}
+
+th.drop-over-upward td {
+  border-top: 2px dashed #1890ff;
+}
+
+#container {
+  margin: 24px;
+}
+
+#container h2 {
+  margin-bottom: 10px;
+}
+
+table th {
+  cursor: move;
+}
+
+tr.drop-over-downward td {
+  border-bottom: 2px dashed #1890ff;
+}
+
+tr.drop-over-upward td {
+  border-top: 2px dashed #1890ff;
 }

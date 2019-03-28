@@ -56,11 +56,11 @@ const AntTableExamples = props => (
 
 const DND = props => (
   <div>
-    <hr />
-    <BeautifulDNDWithTree />
-    <hr />
     {
       /*
+      <hr />
+      <BeautifulDNDWithTree />
+      <hr />
       <VerticalList />
       <hr />
       <HorizontalList />

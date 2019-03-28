@@ -72,3 +72,9 @@ tr.drop-over-downward td {
 tr.drop-over-upward td {
   border-top: 2px dashed #1890ff;
 }
+
+.between-two-lists {
+  /* float: left; */
+  padding: 100px;
+  margin: 100px;
+}

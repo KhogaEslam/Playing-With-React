@@ -73,6 +73,6 @@ const data = [{
   tags: ['cool', 'teacher'],
 }];
 
-const AntWithHighChart = (props) => (<Table columns={columns} dataSource={data} />);
+const AntWithHighChart = (props) => (<Table bordered columns={columns} dataSource={data} />);
 
 export default AntWithHighChart;

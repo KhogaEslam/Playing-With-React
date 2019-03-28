@@ -28,11 +28,11 @@ import VirtualizedSelect from './VirtualizedSelect/VirtualizedSelect'
 
 const AntTableExamples = props => (
   <div>
+    {
+      /*
     <hr />
     <AntTableBigNumberOfColumns />
     <hr />
-    {
-      /*
     <AntTable />
     <hr />
     <AntTableDragDropColumn />
@@ -57,20 +57,20 @@ const AntTableExamples = props => (
 const DND = props => (
   <div>
     <hr />
-    <VerticalList />
-    <hr />
-    <HorizontalList />
-    <hr />
-    <WithFunctionComponents />
-    <hr />
-    <BetweenTwoLists />
+    <BeautifulDNDWithTree />
     <hr />
     {
       /*
-      <BeautifulDNDWithTree />
+      <VerticalList />
+      <hr />
+      <HorizontalList />
+      <hr />
+      <WithFunctionComponents />
+      <hr />
+      <BetweenTwoLists />
       <hr />
       <DNDScrollZone />
-    <hr />
+      <hr />
     */
     }
   </div>
@@ -78,22 +78,26 @@ const DND = props => (
 
 const VirtualizedSortableHOCTrial = props => (
   <div>
+    {
+    /*
     <hr />
     <Virtualized />
     <hr />
     <TableWithSortableColumns />
     <hr />
+    */
+  }
   </div>
 )
 
 const VirtualizedSelectTrial = props => (
   <div>
+    {
+      /*
     <hr />
     <VirtualizedSelect />
     <hr />
-    {
-      /*
-      <ConfigurableExample />
+    <ConfigurableExample />
     <hr />
     */
     }

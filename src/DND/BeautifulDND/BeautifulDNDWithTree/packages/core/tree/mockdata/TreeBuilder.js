@@ -18,6 +18,16 @@ export default class TreeBuilder {
     return this;
   }
 
+  withBatch(startID, count) {
+    for (let id = startID; id <= count; id++) {
+      const leafItem = this._createItem(`${this.rootId}-${id}`);
+      this._addItemToRoot(leafItem.id);
+      this.items[leafItem.id] = leafItem;
+    }
+
+    return this;
+  }
+
   withSubTree(tree) {
     const subTree = tree.build();
     this._addItemToRoot(`${this.rootId}-${subTree.rootId}`);

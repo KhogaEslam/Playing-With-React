@@ -4,31 +4,75 @@
 import TreeBuilder from './TreeBuilder';
 
 export const complexTree = new TreeBuilder(1)
-  .withLeaf(0) // 0
-  .withLeaf(1) // 1
+  .withLeaf(0)
+  .withLeaf(1)
   .withSubTree(
-    new TreeBuilder(2) // 2
-      .withLeaf(0) // 3
-      .withLeaf(1) // 4
-      .withLeaf(2) // 5
-      .withLeaf(3), // 6
+    new TreeBuilder(2)
+    .withLeaf(0)
+    .withLeaf(1)
+    .withLeaf(2)
+    .withLeaf(3)
+    .withLeaf(4)
+    .withLeaf(5)
   )
-  .withLeaf(3) // 7
-  .withLeaf(4) // 8
-  .withLeaf(5) // 9
+  .withLeaf(3)
+  .withLeaf(4)
+  .withLeaf(5)
   .withSubTree(
-    new TreeBuilder(6) // 10
-      .withLeaf(0) // 11
-      .withLeaf(1) // 12
-      .withSubTree(
-        new TreeBuilder(2) // 13
-          .withLeaf(0) // 14
-          .withLeaf(1) // 15
-          .withLeaf(2), // 16
-      )
-      .withLeaf(3) // 17
-      .withLeaf(4), // 18
+    new TreeBuilder(6)
+    .withLeaf(0)
+    .withLeaf(1)
+    .withSubTree(
+      new TreeBuilder(2)
+      .withLeaf(0)
+      .withLeaf(1)
+      .withLeaf(2)
+      .withLeaf(3)
+      .withLeaf(4)
+      .withLeaf(5)
+    )
+    .withLeaf(3)
+    .withLeaf(4)
+
   )
-  .withLeaf(7) // 19
-  .withLeaf(8) // 20
+  .withLeaf(7)
+  .withLeaf(8)
+  .withSubTree(
+    new TreeBuilder(9)
+    .withLeaf(0)
+    .withLeaf(1)
+    .withSubTree(
+      new TreeBuilder(2)
+      .withLeaf(0)
+      .withLeaf(1)
+      .withLeaf(2)
+      .withLeaf(3)
+      .withLeaf(4)
+      .withLeaf(5)
+    )
+    .withLeaf(3)
+    .withLeaf(4)
+
+  )
+  .withLeaf(10)
+  .withLeaf(11)
+  .withLeaf(12)
+  .withLeaf(13)
+  .withLeaf(14)
+  .withLeaf(15)
+  .withLeaf(16)
+  .withLeaf(17)
+  .withLeaf(18)
+  .withLeaf(19)
+  .withLeaf(20)
+  .withLeaf(21)
+  .withLeaf(22)
+  .withLeaf(23)
+  .withLeaf(24)
+  .withLeaf(25)
+  .withLeaf(26)
+  .withLeaf(27)
+  .withLeaf(28)
+  .withLeaf(29)
+  .withBatch(30, 5000)
   .build();

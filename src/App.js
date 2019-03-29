@@ -11,7 +11,7 @@ import AntHeaderMultiLevels from './AntTable/AntHeaderMultiLevels'
 import AntHeaderCustomOptionsMenu from './AntTable/AntHeaderCustomOptionsMenu'
 import AntWithHighChart from './AntTable/AntWithHighChart'
 
-import DNDScrollZone from './DND/DNDScrollZone'
+import DNDScrollZone from './DND/DNDScrollZone/DNDScrollZone'
 
 import BeautifulDNDWithTree from './DND/BeautifulDND/BeautifulDNDWithTree/BeautifulDNDWithTree'
 
@@ -110,12 +110,17 @@ class App extends Component {
       <div className="App">
         <h1>Testing Area</h1>
         <hr />
-        <DND />
         {
           /*
+        <hr / >
+          <DND />
+        <hr / >
           <AntTableExamples />
+        <hr / >
           < VirtualizedSelectTrial / >
+        <hr / >
           <VirtualizedSortableHOCTrial />
+        <hr / >
         */
         }
       </div>

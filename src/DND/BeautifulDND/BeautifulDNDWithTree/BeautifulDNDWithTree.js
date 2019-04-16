@@ -1,28 +1,18 @@
 //@flow
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import '@atlaskit/css-reset';
-import styled from 'styled-components';
-import Navigation, { AkNavigationItem } from '@atlaskit/navigation';
-import ChevronDownIcon from '@atlaskit/icon/glyph/chevron-down';
-import ChevronRightIcon from '@atlaskit/icon/glyph/chevron-right';
-import Button from '@atlaskit/button';
-import Tree, {
-  mutateTree,
-  moveItemOnTree,
-  RenderItemParams,
-  TreeItem,
-  TreeData,
-  ItemId,
-  TreeSourcePosition,
-  TreeDestinationPosition,
-} from '@atlaskit/tree';
-import { complexTree } from './packages/core/tree/mockdata/complexTree';
+import React, { Component } from 'react'
+import '@atlaskit/css-reset'
+import styled from 'styled-components'
+import Navigation, { AkNavigationItem } from '@atlaskit/navigation'
+import ChevronDownIcon from '@atlaskit/icon/glyph/chevron-down'
+import ChevronRightIcon from '@atlaskit/icon/glyph/chevron-right'
+import Button from '@atlaskit/button'
+import Tree, { mutateTree, moveItemOnTree } from '@atlaskit/tree'
+import { complexTree } from './packages/core/tree/mockdata/complexTree'
 
 const Container = styled.div`
   display: flex;
-`;
+`
 
 const Dot = styled.span`
   display: flex;
@@ -31,18 +21,14 @@ const Dot = styled.span`
   justify-content: center;
   font-size: 12px;
   line-height: 32px;
-`;
+`
 
-export default class DragDropWithNestingTree extends Component{
+export default class DragDropWithNestingTree extends Component {
   state = {
-    tree: complexTree,
-  };
+    tree: complexTree
+  }
 
-  static getIcon(
-    item,
-    onExpand,
-    onCollapse,
-  ) {
+  static getIcon(item, onExpand, onCollapse) {
     if (item.children && item.children.length > 0) {
       return item.isExpanded ? (
         <Button
@@ -68,18 +54,12 @@ export default class DragDropWithNestingTree extends Component{
             onClick={() => onExpand(item.id)}
           />
         </Button>
-      );
+      )
     }
-    return <Dot>&bull;</Dot>;
+    return <Dot>&bull;</Dot>
   }
 
-  renderItem = ({
-    item,
-    onExpand,
-    onCollapse,
-    provided,
-    snapshot,
-  }) => {
+  renderItem = ({ item, onExpand, onCollapse, provided, snapshot }) => {
     return (
       <div ref={provided.innerRef} {...provided.draggableProps}>
         <AkNavigationItem
@@ -89,41 +69,38 @@ export default class DragDropWithNestingTree extends Component{
           dnd={{ dragHandleProps: provided.dragHandleProps }}
         />
       </div>
-    );
-  };
+    )
+  }
 
-  onExpand = (itemId) => {
-    const { tree } = this.state;
+  onExpand = itemId => {
+    const { tree } = this.state
     this.setState({
-      tree: mutateTree(tree, itemId, { isExpanded: true }),
-    });
-  };
+      tree: mutateTree(tree, itemId, { isExpanded: true })
+    })
+  }
 
-  onCollapse = (itemId) => {
-    const { tree } = this.state;
+  onCollapse = itemId => {
+    const { tree } = this.state
     this.setState({
-      tree: mutateTree(tree, itemId, { isExpanded: false }),
-    });
-  };
+      tree: mutateTree(tree, itemId, { isExpanded: false })
+    })
+  }
 
-  onDragEnd = (
-    source,
-    destination,
-  ) => {
-    const { tree } = this.state;
+  onDragEnd = (source, destination) => {
+    const { tree } = this.state
 
     if (!destination) {
-      return;
+      return
     }
 
-    const newTree = moveItemOnTree(tree, source, destination);
+    const newTree = moveItemOnTree(tree, source, destination)
     this.setState({
-      tree: newTree,
-    });
-  };
+      tree: newTree
+    })
+  }
 
   render() {
-    const { tree } = this.state;
+    const { tree } = this.state
 
     return (
       <Container>
@@ -139,6 +116,6 @@ export default class DragDropWithNestingTree extends Component{
           />
         </Navigation>
       </Container>
-    );
+    )
   }
 }

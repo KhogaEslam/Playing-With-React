@@ -1,29 +1,28 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import {sortableContainer, sortableElement} from 'react-sortable-hoc';
-import arrayMove from 'array-move';
-import {List} from 'react-virtualized';
+import React, { Component } from 'react'
+import { sortableContainer, sortableElement } from 'react-sortable-hoc'
+import arrayMove from 'array-move'
+import { List } from 'react-virtualized'
 
-const SortableItem = sortableElement(({value}) => {
-  return <li>{value}</li>;
-});
+const SortableItem = sortableElement(({ value }) => {
+  return <li>{value}</li>
+})
 
 class VirtualList extends Component {
-  renderRow = ({index}) => {
-    const {items} = this.props;
-    const {value} = items[index];
-    const {key} = items[index];
+  renderRow = ({ index }) => {
+    const { items } = this.props
+    const { value } = items[index]
+    const { key } = items[index]
 
-    return <SortableItem key={key} index={index} value={value} />;
-  };
+    return <SortableItem key={key} index={index} value={value} />
+  }
 
-  getRowHeight = ({index}) => {
-    const {items} = this.props;
-    return items[index].height;
-  };
+  getRowHeight = ({ index }) => {
+    const { items } = this.props
+    return items[index].height
+  }
 
   render() {
-    const {items, getRef} = this.props;
+    const { items, getRef } = this.props
 
     return (
       <List
@@ -34,59 +33,58 @@ class VirtualList extends Component {
         width={400}
         height={600}
       />
-    );
+    )
   }
 }
 
-const SortableVirtualList = sortableContainer(VirtualList);
+const SortableVirtualList = sortableContainer(VirtualList)
 
 class Virtualized extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    const items = [];
-    for(let i = 1; i <= 100; i++) {
-      items
-      .push({
+    const items = []
+    for (let i = 1; i <= 100; i++) {
+      items.push({
         key: i,
         value: `Item ${i}`,
-        height: this.getRandomInt(50,200),
+        height: this.getRandomInt(50, 200)
       })
     }
     this.state = {
-      items,
-    };
+      items
+    }
   }
 
   getRandomInt = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
-  registerListRef = (listInstance) => {
-    this.List = listInstance;
-  };
+  registerListRef = listInstance => {
+    this.List = listInstance
+  }
 
-  onSortEnd = ({oldIndex, newIndex}) => {
+  onSortEnd = ({ oldIndex, newIndex }) => {
     if (oldIndex === newIndex) {
-      return;
+      return
     }
 
-    const {items} = this.state;
+    const { items } = this.state
 
     this.setState({
-      items: arrayMove(items, oldIndex, newIndex),
-    });
+      items: arrayMove(items, oldIndex, newIndex)
+    })
 
     // We need to inform React Virtualized that the items have changed heights
     // This can either be done by imperatively calling the recomputeRowHeights and
     // forceUpdate instance methods on the `List` ref, or by passing an additional prop
     // to List that changes whenever the order changes to force it to re-render
-    this.List.recomputeRowHeights();
-    this.List.forceUpdate();
-  };
+    this.List.recomputeRowHeights()
+    this.List.forceUpdate()
+  }
 
   render() {
-    const {items} = this.state;
+    const { items } = this.state
 
     return (
       <SortableVirtualList
@@ -94,8 +92,8 @@ class Virtualized extends Component {
         items={items}
         onSortEnd={this.onSortEnd}
       />
-    );
+    )
   }
 }
 
-export default Virtualized;
+export default Virtualized

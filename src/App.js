@@ -26,10 +26,8 @@ import TableWithSortableColumns from './SortableHOC/TableWithSortableColumns'
 import VirtualizedSelect from './VirtualizedSelect/VirtualizedSelect'
 // import ConfigurableExample from './VirtualizedSelect/MyConfigurableExample'
 
-const AntTableExamples = props => (
+const AntTableExamples = _ => (
   <div>
-    {
-      /*
     <hr />
     <AntTableBigNumberOfColumns />
     <hr />
@@ -49,58 +47,44 @@ const AntTableExamples = props => (
     <hr />
     <AntWithHighChart />
     <hr />
-    */
-    }
   </div>
 )
 
-const DND = props => (
+const DND = _ => (
   <div>
-    {
-      /*
-      <hr />
-      <BeautifulDNDWithTree />
-      <hr />
-      <VerticalList />
-      <hr />
-      <HorizontalList />
-      <hr />
-      <WithFunctionComponents />
-      <hr />
-      <BetweenTwoLists />
-      <hr />
-      <DNDScrollZone />
-      <hr />
-    */
-    }
+    <hr />
+    <BeautifulDNDWithTree />
+    <hr />
+    <VerticalList />
+    <hr />
+    <HorizontalList />
+    <hr />
+    <WithFunctionComponents />
+    <hr />
+    <BetweenTwoLists />
+    <hr />
+    <DNDScrollZone />
+    <hr />
   </div>
 )
 
-const VirtualizedSortableHOCTrial = props => (
+const VirtualizedSortableHOCTrial = _ => (
   <div>
-    {
-    /*
     <hr />
     <Virtualized />
     <hr />
     <TableWithSortableColumns />
     <hr />
-    */
-  }
   </div>
 )
 
-const VirtualizedSelectTrial = props => (
+const VirtualizedSelectTrial = _ => (
   <div>
-    {
-      /*
     <hr />
     <VirtualizedSelect />
     <hr />
-    <ConfigurableExample />
+    {/*<ConfigurableExample />*/}
     <hr />
-    */
-    }
   </div>
 )
 
@@ -110,19 +94,15 @@ class App extends Component {
       <div className="App">
         <h1>Testing Area</h1>
         <hr />
-        {
-          /*
-        <hr / >
-          <DND />
-        <hr / >
-          <AntTableExamples />
-        <hr / >
-          < VirtualizedSelectTrial / >
-        <hr / >
-          <VirtualizedSortableHOCTrial />
-        <hr / >
-        */
-        }
+        <AntTableExamples />
+        <hr />
+        <DND />
+        <hr />
+        <hr />
+        <VirtualizedSelectTrial />
+        <hr />
+        <VirtualizedSortableHOCTrial />
+        <hr />
       </div>
     )
   }

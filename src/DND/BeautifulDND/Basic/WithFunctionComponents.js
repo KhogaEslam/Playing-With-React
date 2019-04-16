@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import styled from "@emotion/styled";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import React, { useState } from 'react'
+import styled from '@emotion/styled'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 const initial = Array.from({ length: 10 }, (v, k) => k).map(k => {
   const custom = {
     id: `id-${k}`,
     content: `Quote ${k}`
-  };
+  }
 
-  return custom;
-});
+  return custom
+})
 
-const grid = 8;
+const grid = 8
 const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
+  const result = Array.from(list)
+  const [removed] = result.splice(startIndex, 1)
+  result.splice(endIndex, 0, removed)
 
-  return result;
-};
+  return result
+}
 
 const QuoteItem = styled.div`
   width: 200px;
@@ -27,7 +26,7 @@ const QuoteItem = styled.div`
   margin-bottom: ${grid}px;
   background-color: lightblue;
   padding: ${grid}px;
-`;
+`
 
 function Quote({ quote, index }) {
   return (
@@ -42,34 +41,34 @@ function Quote({ quote, index }) {
         </QuoteItem>
       )}
     </Draggable>
-  );
+  )
 }
 
 const QuoteList = React.memo(function QuoteList({ quotes }) {
   return quotes.map((quote, index) => (
     <Quote quote={quote} index={index} key={quote.id} />
-  ));
-});
+  ))
+})
 
 function WithFunctionComponents() {
-  const [state, setState] = useState({ quotes: initial });
+  const [state, setState] = useState({ quotes: initial })
 
   function onDragEnd(result) {
     if (!result.destination) {
-      return;
+      return
     }
 
     if (result.destination.index === result.source.index) {
-      return;
+      return
     }
 
     const quotes = reorder(
       state.quotes,
       result.source.index,
       result.destination.index
-    );
+    )
 
-    setState({ quotes });
+    setState({ quotes })
   }
 
   return (
@@ -83,7 +82,7 @@ function WithFunctionComponents() {
         )}
       </Droppable>
     </DragDropContext>
-  );
+  )
 }
 
-export default WithFunctionComponents;
+export default WithFunctionComponents
